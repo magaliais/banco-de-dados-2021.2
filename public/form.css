@@ -1,0 +1,110 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Inter', sans-serif;
+  background-color: #161525;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 4rem;
+
+  background: #0D0E17;
+  border-radius: 10px;
+  border-top: 3px solid var(--main-color);
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.7);
+
+}
+
+h2 {
+  margin-bottom: 2rem;
+  color: var(--main-color);
+}
+
+.form-container form .input-field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.form-container form button {
+  position: relative;
+  margin-top: 1rem;
+  padding: .5rem 0;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: 0.5s;
+
+  background-color: var(--green);
+  color: #fff;
+  font-family: 'Inter';
+  font-size: 1.25rem;
+  cursor: pointer;
+  border-radius: 99px;
+}
+
+.form-container form button::after {
+  content: '»';
+  position: absolute;
+  opacity: 0;  
+  top: 10;
+  right: -5px;
+  transition: 0.5s;
+}
+
+.form-container form button:hover{
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.form-container form button:hover::after {
+  opacity: 1;
+  right: 70px;
+}
+
+/* firula ------------------------------------------------------------------- */
+.input-field .underline::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  bottom: 0px;
+  left: 0;
+  
+  background: linear-gradient(to right, var(--main-color), var(--green));
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+  transform-origin: left;
+}
+
+.input-field input:focus ~ .underline::after {
+  transform: scaleX(1);
+}
+/* -------------------------------------------------------------------------- */
+
+.form-container form .input-field label {
+  margin: 0 0 .5rem .5rem;
+  font-weight: bold;
+  color: #6a6f7c;
+}
+
+.form-container form .input-field input {
+  padding: .75rem 1.25rem;
+  font-size: 1rem;
+  font-family: 'Inter';
+  background-color: #191C2D;
+  color: #fff;
+  border: none;
+  outline: none;
+}
