@@ -108,3 +108,23 @@ h2 {
   border: none;
   outline: none;
 }
+
+.form-container form .input-field select {
+  padding: .75rem 1.25rem;
+  font-size: 1rem;
+  font-family: 'Inter';
+  background-color: #191C2D;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+
+.form-container form .input-field select option {
+  padding: .75rem 1.25rem;
+  font-size: 1rem;
+  font-family: 'Inter';
+  background-color: #191C2D;
+  color: #fff;
+  border: none;
+  outline: none;
+}
