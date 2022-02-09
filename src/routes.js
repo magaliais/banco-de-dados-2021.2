@@ -18,7 +18,7 @@ routes.post("/personagem", (req, res) => {
     genero: req.body.genero,
     personagem_tipo: req.body.tipo,
   }).then(() => {
-    res.send(`Personagem ${req.body.nome} cadastrado com sucesso!`);
+    res.render('sucesso', { personagem: req.body.nome });
   }).catch(erro => {
     res.send(`Houve um erro ao cadastrar ${req.body.nome}: ${erro}`);
   });

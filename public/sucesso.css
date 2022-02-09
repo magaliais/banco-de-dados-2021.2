@@ -1,0 +1,23 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #161525;
+}
+
+.message-container {
+  max-width: 80%;
+  text-align: center;
+  background-color: #0D0E17;
+  padding: 3rem;
+}
+
+.message-container p {
+  font-family: 'Inter', sans-serif;
+  font-size: 4rem;
+  font-style: italic;
+  color: var(--green);
+}
