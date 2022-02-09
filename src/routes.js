@@ -16,7 +16,7 @@ routes.post("/personagem", (req, res) => {
   Personagem.create({
     nome: req.body.nome,
     genero: req.body.genero,
-    tipo: req.body.tipo
+    personagem_tipo: req.body.tipo,
   }).then(() => {
     res.send(`Personagem ${req.body.nome} cadastrado com sucesso!`);
   }).catch(erro => {

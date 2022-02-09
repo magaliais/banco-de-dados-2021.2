@@ -12,7 +12,7 @@ const Personagem = db.sequelize.define("personagens", {
   genero: {
     type: db.Sequelize.BOOLEAN,
   },
-  tipo: {
+  personagem_tipo: {
     type: db.Sequelize.INTEGER,
   },
 });
