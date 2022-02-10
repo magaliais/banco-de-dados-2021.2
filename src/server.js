@@ -1,7 +1,7 @@
 const express = require("express");
 const server = express();
 
-// importa módulo do express responsável por criar e manipular as rotas
+// importa módulo do arquivo routes.js responsável por criar e manipular as rotas
 const routes = require("./routes");
 
 // importa módulo que fornece utilidades para trabalhar com paths dos diretórios
@@ -25,6 +25,6 @@ server.use(routes);
 
 // -----------------------------------------------------------------------------
 
-server.listen(8080, () => {
-  console.log("Servidor na url https://localhost:8080");
+server.listen(3000, () => {
+  console.log("Servidor na url https://localhost:3000");
 });
