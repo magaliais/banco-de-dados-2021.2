@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Personagens</title>
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="personagens.css">
+</head>
+<body>
+  <div class="container">
+    <table>
+      <tr>
+        <th>Nome</th>
+        <th>Gênero</th>
+        <th>Tipo</th>
+      </tr>
+
+      <% personagens.forEach(personagem => { %>
+        <tr>
+          <td><%= personagem.nome %> </td>
+
+          <% if(personagem.genero == 0){ %>
+            <td>Feminino</td>
+          <% } else { %>  
+            <td>Masculino</td>
+          <% } %>
+
+          <% if(personagem.personagem_tipo == 0){ %>
+            <td>Herói</td>
+          <% } else if(personagem.personagem_tipo == 1) { %>  
+            <td>Vilão</td>
+          <% } else { %>
+            <td> Anti-Herói   </td>
+          <% } %>
+          
+        </tr>
+      <% }); %> 
+    </table>
+  </div>
+</body>
+</html>

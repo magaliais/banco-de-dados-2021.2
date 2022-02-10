@@ -5,11 +5,12 @@ const Personagem = require("./models/Personagem");
 
 // rotas get -------------------------------------------------------------------
 routes.get("/", (req, res) => res.render('index'));
-routes.get("/personagem", (req, res) => res.render('personagem'));
 
-routes.get("/teste", function (req, res) {
-  res.send("teste");
+routes.get("/personagem", (req, res) => res.render('personagem'));
+routes.get("/personagens", (req, res) => {
+  Personagem.findAll().then(personagens => res.render("personagens", {personagens}));
 });
+
 
 // rotas post ------------------------------------------------------------------
 routes.post("/personagem", (req, res) => {
