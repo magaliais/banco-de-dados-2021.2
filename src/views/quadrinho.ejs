@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Quadrinho</title>
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="quadrinho.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Cadastro de Quadrinho</h2>
+    <div class="form-container">
+      <form action="/quadrinho" method="POST" autocomplete="off">
+        <div class="input-field">
+          <label for="nome">Nome</label>
+          <input type="text" name="nome" id="nome">
+          <div class="underline"></div>
+        </div>
+        <div class="input-field">
+          <label for="tipo">Tipo</label>
+          <select name="genero" id="genero">
+            <option value="0">Ação</option>
+            <option value="1">Mistério</option>
+          </select>
+        </div>
+        <div class="input-field">
+          <label for="desrcicao">Descrição</label>
+          <textarea name="descricao" id="descricao" resize="none"></textarea>
+          <div class="underline"></div>
+        </div>
+        <div class="input-field">
+          <label for="nacionalidade">Nacionalidade</label>
+          <select name="nacionalidade" id="nacionalidade">
+            <option value="0">EUA</option>
+            <option value="1">Brasil</option>
+          </select>
+          <div class="underline"></div>
+        </div>
+        <div class="input-field">
+          <label for="personagem">Personagem participante</label>
+          <select name="personagem" id="personagem">
+            <% personagens.forEach(personagem=> { %>
+              <option value="<%= personagem.id %> "><%= personagem.nome %> </option>
+            <% }); %>
+          </select>
+          <div class="underline"></div>
+        </div>
+        <div class="input-field single-checkbox">
+          <input type="checkbox" name="capa_dura" id="capa_dura">
+          <label for="capa_dura">Capa Dura</label>
+        </div>
+
+        <button>Cadastrar</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
