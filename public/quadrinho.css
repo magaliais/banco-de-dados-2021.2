@@ -8,6 +8,19 @@ body {
   background-color: #161525;
 }
 
+/* width */
+body::-webkit-scrollbar {
+  width: 15px;
+}
+/* Track */
+body::-webkit-scrollbar-track {
+  background: #0D0E17;
+}
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: var(--green);
+}
+
 .container {
   display: flex;
   flex-direction: column;
