@@ -1,15 +1,5 @@
 CREATE DATABASE trabalho;
 
-
-CREATE TABLE trabalho.filmes (
-id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-titulo varchar(50) NOT NULL, 
-ano_lancamento int,
-createdAt date,
-updatedAt date,
-UNIQUE(titulo)
-);
-
 CREATE TABLE trabalho.personagens (
 id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 nome varchar(50) NOT NULL,
@@ -19,6 +9,17 @@ createdAt date,
 updatedAt date,
 UNIQUE(nome)
 -- 0 = heroi / 1 = vilao / 2 = antiheroi
+);
+
+CREATE TABLE trabalho.filmes (
+id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+titulo varchar(50) NOT NULL, 
+ano_lancamento int,
+fk_personagem_id int,
+createdAt date,
+updatedAt date,
+UNIQUE(titulo),
+FOREIGN KEY (fk_personagem_id) REFERENCES personagens(id)
 );
 
 CREATE TABLE trabalho.leitores (
