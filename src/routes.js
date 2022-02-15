@@ -34,7 +34,7 @@ routes.post("/quadrinho", (req, res) => {
     nome: req.body.nome,
     tipo: req.body.tipo,
     descricao: req.body.descricao,
-    capa_dura: 1, // mudar
+    capa_dura: req.body.capa_dura ? true : false,
     nacionalidade: req.body.nacionalidade,
   })
     .then(() => {
