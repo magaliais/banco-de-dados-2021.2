@@ -28,15 +28,14 @@
         <div class="input-field">
           <label for="desrcicao">Descrição</label>
           <textarea name="descricao" id="descricao" resize="none"></textarea>
-          <div class="underline"></div>
         </div>
         <div class="input-field">
           <label for="nacionalidade">Nacionalidade</label>
           <select name="nacionalidade" id="nacionalidade">
-            <option value="0">EUA</option>
-            <option value="1">Brasil</option>
+            <option value="EUA">EUA</option>
+            <option value="Brasil">Brasil</option>
+            <option value="Inglaterra">Inglaterra</option>
           </select>
-          <div class="underline"></div>
         </div>
         <div class="input-field">
           <label for="personagem">Personagem participante</label>
@@ -45,7 +44,6 @@
               <option value="<%= personagem.id %> "><%= personagem.nome %> </option>
             <% }); %>
           </select>
-          <div class="underline"></div>
         </div>
         <div class="input-field single-checkbox">
           <input type="checkbox" name="capa_dura" id="capa_dura">
