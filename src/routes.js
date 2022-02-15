@@ -3,17 +3,24 @@ const routes = express.Router();
 
 const Personagem = require("./models/Personagem");
 const Quadrinho = require("./models/Quadrinho");
+const Filme = require("./models/Filme");
 
 // rotas get -------------------------------------------------------------------
 routes.get("/", (req, res) => res.render('index'));
 
 routes.get("/personagem", (req, res) => res.render('personagem'));
-routes.get("/quadrinho", (req, res) => {
-  Personagem.findAll().then((personagens) => res.render("quadrinho", { personagens }));
-});
 routes.get("/personagens", (req, res) => {
   Personagem.findAll().then(personagens => res.render("personagens", {personagens}));
 });
+
+routes.get("/quadrinho", (req, res) => {
+  Personagem.findAll().then((personagens) => res.render("quadrinho", { personagens }));
+});
+
+routes.get("/filme", (req, res) => {
+  Personagem.findAll().then((personagens) => res.render("filme", { personagens }));
+});
+
 
 
 // rotas post ------------------------------------------------------------------
@@ -23,9 +30,9 @@ routes.post("/personagem", (req, res) => {
     genero: req.body.genero,
     personagem_tipo: req.body.tipo,
   }).then(() => {
-    res.render('sucesso', { personagem: req.body.nome });
+    res.render("sucesso", { objeto: req.body.nome });
   }).catch(erro => {
-    res.send(`Houve um erro ao cadastrar ${req.body.nome}: ${erro}`);
+    res.send(`Houve um erro ao cadastrar o personagem ${req.body.nome}: ${erro}`);
   });
 });
 
@@ -38,10 +45,26 @@ routes.post("/quadrinho", (req, res) => {
     nacionalidade: req.body.nacionalidade,
   })
     .then(() => {
-      res.render("sucesso", { personagem: req.body.nome });
+      res.render("sucesso", { objeto: req.body.nome });
     })
     .catch((erro) => {
-      res.send(`Houve um erro ao cadastrar ${req.body.nome}: ${erro}`);
+      res.send(`Houve um erro ao cadastrar o quadrinho ${req.body.nome}: ${erro}`);
+    });
+});
+
+routes.post("/filme", (req, res) => {
+  Filme.create({
+    titulo: req.body.titulo,
+    ano_lancamento: req.body.ano_lancamento,
+    fk_personagem_id: req.body.personagem,
+  })
+    .then(() => {
+      res.render("sucesso", { objeto: req.body.titulo });
+    })
+    .catch((erro) => {
+      res.send(
+        `Houve um erro ao cadastrar o filme ${req.body.titulo}: ${erro}`
+      );
     });
 });
 
