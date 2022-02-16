@@ -54,3 +54,21 @@ body {
   border-bottom: 1px solid grey;
   border-top: 1px solid grey;
 }
+
+.container table tr td button {
+  font-family: 'Inter';
+  font-weight: 500;
+
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  background-color: #F26B6E;
+
+  transition: all .2s ease;
+}
+
+.container table tr td button:hover {
+  background-color: #e04d50;
+}
