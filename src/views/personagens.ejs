@@ -34,6 +34,12 @@
           <% } else { %>
             <td> Anti-Herói   </td>
           <% } %>
+
+          <td>
+            <form action="/deletar-personagem/<%= personagem.id %>" method="POST">
+              <button>deletar</button>
+            </form>
+          </td>
           
         </tr>
       <% }); %> 

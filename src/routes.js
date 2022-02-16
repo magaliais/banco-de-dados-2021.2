@@ -68,4 +68,14 @@ routes.post("/filme", (req, res) => {
     });
 });
 
+
+
+routes.post("/deletar-personagem/:id", (req, res) => {
+  Personagem.destroy({ where: { id: req.params.id } })
+    .then(() => res.send(`Personagem deletado com sucesso!`))
+    .catch(erro => {
+      res.send(`Houve um erro ao deletar o personagem! Erro: ${erro}`);
+    });
+});
+
 module.exports = routes;
