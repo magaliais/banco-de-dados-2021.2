@@ -15,11 +15,9 @@ CREATE TABLE trabalho.filmes (
 id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 titulo varchar(50) NOT NULL, 
 ano_lancamento int,
-fk_personagem_id int,
 createdAt date,
 updatedAt date,
-UNIQUE(titulo),
-FOREIGN KEY (fk_personagem_id) REFERENCES personagens(id)
+UNIQUE(titulo)
 );
 
 CREATE TABLE trabalho.leitores (
@@ -82,65 +80,66 @@ UNIQUE(nome),
 FOREIGN KEY (fk_coletaneas_id) REFERENCES coletaneas(id)
 );
 
-CREATE TABLE trabalho.existe (
-fk_personagens_id int,
-fk_filmes_id int,
-createdAt date,
-updatedAt date,
-FOREIGN KEY (fk_personagens_id) REFERENCES personagens(id),
-FOREIGN KEY (fk_filmes_id) REFERENCES filmes(id)
-);
-
 CREATE TABLE trabalho.participa (
-fk_personagens_id int,
-fk_quadrinhos_id int,
+fk_personagem_id int,
+fk_quadrinho_id int,
 createdAt date,
 updatedAt date,
-FOREIGN KEY (fk_personagens_id) REFERENCES personagens(id),
-FOREIGN KEY (fk_quadrinhos_id) REFERENCES quadrinhos(id)
+FOREIGN KEY (fk_personagem_id) REFERENCES personagens(id),
+FOREIGN KEY (fk_quadrinho_id) REFERENCES quadrinhos(id)
 );
 
 CREATE TABLE trabalho.possui (
-fk_personagens_id int,
-fk_super_poderes_id int,
+fk_personagem_id int,
+fk_super_poder_id int,
 createdAt date,
 updatedAt date,
-FOREIGN KEY (fk_personagens_id) REFERENCES personagens(id),
-FOREIGN KEY (fk_super_poderes_id) REFERENCES super_poderes(id)
+FOREIGN KEY (fk_personagem_id) REFERENCES personagens(id),
+FOREIGN KEY (fk_super_poder_id) REFERENCES super_poderes(id)
 );
 
 CREATE TABLE trabalho.prefere (
-fk_personagens_id int, 
-fk_leitores_id int,
+fk_personagem_id int, 
+fk_leitor_id int,
 createdAt date,
 updatedAt date,
-FOREIGN KEY (fk_personagens_id) REFERENCES personagens(id),
-FOREIGN KEY (fk_leitores_id) REFERENCES leitores(id)
+FOREIGN KEY (fk_personagem_id) REFERENCES personagens(id),
+FOREIGN KEY (fk_leitor_id) REFERENCES leitores(id)
 );
 
 CREATE TABLE trabalho.escreve (
-fk_quadrinhos_id int,
-fk_autores_id int,
+fk_quadrinho_id int,
+fk_autor_id int,
 createdAt date,
 updatedAt date,
-FOREIGN KEY (fk_quadrinhos_id) REFERENCES quadrinhos(id),
-FOREIGN KEY (fk_autores_id) REFERENCES autores(id)
+FOREIGN KEY (fk_quadrinho_id) REFERENCES quadrinhos(id),
+FOREIGN KEY (fk_autor_id) REFERENCES autores(id)
 );
 
 CREATE TABLE trabalho.edicoes_especiais (
-fk_quadrinhos_id int,
+fk_quadrinho_id int,
 createdAt date,
 updatedAt date,
-FOREIGN KEY (fk_quadrinhos_id) REFERENCES quadrinhos(id)
+FOREIGN KEY (fk_quadrinho_id) REFERENCES quadrinhos(id)
 );
 
 CREATE TABLE trabalho.pertence (
-fk_quadrinhos_id int,
-fk_editoras_id int,
+fk_quadrinho_id int,
+fk_editora_id int,
 createdAt date,
 updatedAt date,
-FOREIGN KEY (fk_quadrinhos_id) REFERENCES quadrinhos(id),
-FOREIGN KEY (fk_editoras_id) REFERENCES editoras(id)
+FOREIGN KEY (fk_quadrinho_id) REFERENCES quadrinhos(id),
+FOREIGN KEY (fk_editora_id) REFERENCES editoras(id)
+);
+
+CREATE TABLE trabalho.existes (
+id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+fk_personagem_id int,
+fk_filme_id int,
+createdAt date,
+updatedAt date,
+FOREIGN KEY (fk_personagem_id) REFERENCES personagens(id),
+FOREIGN KEY (fk_filme_id) REFERENCES filmes(id)
 );
 
 CREATE TABLE trabalho.almanaques (

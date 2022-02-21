@@ -1,9 +1,14 @@
 const express = require("express");
 const routes = express.Router();
 
+// banco de dados
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;              // biblioteca de operadores
+
 const Personagem = require("./models/Personagem");
 const Quadrinho = require("./models/Quadrinho");
 const Filme = require("./models/Filme");
+const Existe = require("./models/Existe");
 
 // rotas get -------------------------------------------------------------------
 routes.get("/", (req, res) => res.render('index'));
@@ -56,16 +61,25 @@ routes.post("/filme", (req, res) => {
   Filme.create({
     titulo: req.body.titulo,
     ano_lancamento: req.body.ano_lancamento,
-    fk_personagem_id: req.body.personagem,
   })
-    .then(() => {
-      res.render("sucesso", { objeto: req.body.titulo });
+    .then(filme => {
+      Existe.create({
+        fk_personagem_id: req.body.personagem,
+        fk_filme_id: filme.id,
+      })
+        .then(() => {
+          res.render("sucesso", { objeto: '' });
+        })
+        .catch((erro) => {
+          res.send(`Houve um erro ao cadastrar o 'existe': ${erro}`);
+        });
     })
     .catch((erro) => {
       res.send(
         `Houve um erro ao cadastrar o filme ${req.body.titulo}: ${erro}`
       );
     });
+
 });
 
 
