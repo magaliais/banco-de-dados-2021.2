@@ -12,11 +12,8 @@ const Filme = db.sequelize.define("filmes", {
   ano_lancamento: {
     type: db.Sequelize.INTEGER,
   },
-  fk_personagem_id: {
-    type: db.Sequelize.INTEGER,
-  },
 });
 
-// Personagem.sync({force: true});
+// Filme.sync({force: true});
 
 module.exports = Filme;
